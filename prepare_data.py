@@ -50,14 +50,15 @@ class DataProcessor:
         self.max_source_length = max_source_length
         self.max_target_length = max_target_length
 
+        '''
         self.hl_token = "<hl>"            
         self.sep_token = "<sep>"
+        '''
 
   
     def process(self, dataset):
-        dataset = dataset.map(self._add_eos_examples)
-        
-        dataset = dataset.map(self._add_special_tokens)
+        # dataset = dataset.map(self._add_eos_examples)
+        # dataset = dataset.map(self._add_special_tokens)
         dataset = dataset.map(self._convert_to_features, batched=True)
         
         return dataset
